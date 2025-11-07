@@ -36,10 +36,6 @@ Cada configuração foi repetida **três vezes**, e o tempo total de execução 
 Durante a execução em ambiente leve, o desempenho dos modelos **N:M** e **1:1** foi praticamente idêntico, com variações inferiores a 1%.  
 Com o sistema sobrecarregado, observou-se um aumento geral no tempo de execução (cerca de 5% a 15%), sendo o modelo N:M ligeiramente mais afetado.
 
----
-
-## 4. Análise e Discussão
-
 Os resultados indicam que, sob carga computacional intensiva e com o número de threads próximo ao número de núcleos, **ambos os modelos apresentam desempenho equivalente**.
 
 O modelo **1:1** é naturalmente favorecido quando há recursos disponíveis, pois o escalonador do sistema pode gerenciar cada thread de forma independente. Entretanto, ele tem maior custo de criação e gerenciamento de threads, o que se torna relevante apenas quando o número de threads cresce de forma exponencial.
@@ -51,20 +47,12 @@ Quando N se aproxima de 2000, ambos os modelos atingem o limite de paralelismo f
 
 A segunda execução também demonstra a interferência de **concorrência externa**: múltiplos processos competindo por CPU provocam aumento de tempo mesmo sem alterar o código. Isso evidencia a importância de conduzir experimentos de desempenho em **ambientes controlados e isolados**.
 
----
-
-## 5. Conclusões
-
 A partir dos resultados obtidos, é possível concluir que:
 
 - Em condições controladas, os modelos **N:M** e **1:1** apresentaram desempenho quase idêntico para tarefas CPU-bound.  
 - Sob carga externa, o modelo **1:1** manteve desempenho mais estável, enquanto o **N:M** apresentou leve aumento no tempo de execução.  
 - À medida que o número de threads excede o número de núcleos disponíveis, o ganho de paralelismo desaparece e o tempo de execução passa a crescer proporcionalmente.  
 - O modelo **N:M** é mais vantajoso em cenários com **muitas tarefas leves e de I/O**, enquanto o **1:1** é preferível em tarefas **intensivas em CPU**, nas quais o número de threads pode ser alinhado com os núcleos do processador.
-
----
-
-## 6. Considerações Finais
 
 O experimento atingiu seu objetivo principal: compreender como diferentes modelos de mapeamento de threads influenciam o desempenho em ambientes concorrentes.
 
