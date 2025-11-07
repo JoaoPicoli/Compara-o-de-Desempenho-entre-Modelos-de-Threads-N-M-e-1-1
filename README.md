@@ -70,5 +70,5 @@ Em suma, o comportamento observado reforça a importância de escolher o modelo 
 - Documentação oficial da Oracle: [Java Concurrency](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html)
 
 ### Specs do meu pc
-![Especificações do meu computador](Captura de tela 2025-11-06 233339.png)
+![Especificações do meu computador](specs.png)
 
